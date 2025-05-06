@@ -4,18 +4,40 @@
 }
 
 form {
-  display: inline-flex;
-  align-items: center;
+    background-color: #8a2be2;	
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 input {
-  padding: 8px;
-  margin-right: 10px;
+width: 80%;
+  max-width: 500px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   font-size: 16px;
+  margin-right: 4px;
+  background-color:#F8F8FF	;
+}
+input:hover{
+  background-color: #E6E6FA	; 
+}
+button {
+ padding: 10px 20px;
+  background-color: #E6E6FA	;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
+button:hover {
+  background-color:#570095			;
+  color:  white; 
 }
