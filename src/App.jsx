@@ -6,6 +6,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
 const API_KEY = "e_SarYMT-ml1r17R8SLj5LJw6uH_3NpXbYKJAS58DV4";
@@ -17,6 +18,7 @@ const App = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const fetchImages = async (query, newSearch = false) => {
     setLoading(true);
@@ -63,14 +65,30 @@ const App = () => {
     fetchImages(searchQuery);
   };
 
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div>
       <SearchBar onSubmit={handleSearchSubmit} />
       {loading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      <ImageGallery images={images} />
+      <ImageGallery images={images} onImageClick={openModal} />
       {!loading && images.length > 0 && page <= totalPages && (
         <LoadMoreBtn onClick={handleLoadMore} />
+      )}
+      {selectedImage && (
+        <ImageModal
+          isOpen={true}
+          onClose={closeModal}
+          imageUrl={selectedImage.urls.regular}
+          alt={selectedImage.alt_description}
+        />
       )}
     </div>
   );
