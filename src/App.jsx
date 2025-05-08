@@ -9,7 +9,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 
 const API_URL = "https://api.unsplash.com/search/photos";
-const API_KEY = "e_SarYMT-ml1r17R8SLj5LJw6uH_3NpXbYKJAS58DV4";
+const API_KEY = "N-2VUjJv3L-KpqRWhohRAuuJLYj3ASs7WT6XS4X-UKI";
 
 const App = () => {
   const [images, setImages] = useState([]);
